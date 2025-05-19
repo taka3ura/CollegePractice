@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <h1>Blog Name</h1>
-    <a href="/posts/create">create</a>
+    <h1>投稿一覧</h1>
+    <a href="/posts/create">新規作成</a>
     <div class="posts">
         @foreach ($posts as $post)
         <div class="post">
@@ -17,6 +17,7 @@
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
             <p class="body">{{ $post->body }}</p>
+            <hr>
         </div>
         @endforeach
     </div>
