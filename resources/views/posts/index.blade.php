@@ -19,13 +19,16 @@
 
 <body>
     <h1>投稿一覧</h1>
+    <hr>
     <a href="/posts/create">新規作成</a>
+    <hr>
     <div class="posts">
         @foreach ($posts as $post)
         <div class="post">
             <h2 class="title">
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
+            <a href="">{{ $post->category->name }}</a>
             <p class="body">{{ $post->body }}</p>
             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
