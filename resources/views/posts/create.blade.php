@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-
-<body>
+<x-app-layout>
     <h1>新規投稿</h1>
     <form action="/posts" method="POST">
         @csrf
@@ -34,7 +25,4 @@
     <div class="footer">
         <a href="/">戻る</a>
     </div>
-
-</body>
-
-</html>
+</x-app-layout>
