@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <style>
-        body {
-            max-width: 800px;
-            /* 最大幅を800pxに設定 */
-            margin: 0 auto;
-            /* 中央揃えにするためのマージン */
-            padding: 20px;
-            /* 内側の余白 */
-        }
-    </style>
-</head>
-
-<body>
-    <h1>投稿一覧</h1>
-    <hr>
-    <a href="/posts/create">新規作成</a>
-    <hr>
+<x-app-layout>
+    <div class="header2">
+        <h1>投稿一覧</h1>
+        <p>ログインユーザー <strong>{{ Auth::user()->name }}</strong></p>
+        <hr>
+        <p><a href="/posts/create">新規作成</a></p>
+        <hr>
+    </div>
     <div class="posts">
         @foreach ($posts as $post)
         <div class="post">
@@ -33,9 +17,8 @@
             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="button" onclick="deletePost({{ $post->id }})">削除</button>
+                <button type="button" class="delete" onclick="deletePost({{ $post->id }})">削除する</button>
             </form>
-            <hr>
         </div>
         @endforeach
     </div>
@@ -51,6 +34,4 @@
             }
         }
     </script>
-</body>
-
-</html>
+</x-app-layout>
